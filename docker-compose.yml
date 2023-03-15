@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  postgres:
+    container_name: unleash_db
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_USER=unleash_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=unleash
+    ports:
+      - '5532:5432'
+    networks:
+      - unleash
+
+  unleash:
+    container_name: unleash
+    image: unleashorg/unleash-server
+    ports:
+      - '4242:4242'
+    environment:
+      - DATABASE_HOST=host.docker.internal
+      - DATABASE_NAME=unleash
+      - DATABASE_USERNAME=unleash_user
+      - DATABASE_PASSWORD=password
+      - DATABASE_SSL=false
+      - DATABASE_PORT=5532
+    networks:
+      - unleash
+    depends_on:
+      - postgres
+
+networks:
+  unleash:
