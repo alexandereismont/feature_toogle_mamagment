@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "e0a9a03a-179d-49fd-a454-6d648ec01882",
+		"name": "Unleash",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buy with context",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Thomas\",\n    \"country\": \"Norway\",\n    \"product\": \"Jeans\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/buy/withcontext",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"buy",
+						"withcontext"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy with canary",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/buy/withcontext",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"buy",
+						"withcontext"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
